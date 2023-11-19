@@ -1,5 +1,5 @@
 import { TouchableOpacity, View, ScrollView, TextInput,BackHandler, Alert, Vibration, KeyboardAvoidingView, Linking, AppState, Modal, Pressable, Platform } from 'react-native';
-import { Badge, Button, Divider, Image, Text, Input, useTheme } from '@rneui/themed';
+import { Badge, Button, Divider, Image, Text, Input, useTheme, lightColors, } from '@rneui/themed';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { makeStyles } from '@rneui/themed';
 import Ionicon from 'react-native-vector-icons/Ionicons';
@@ -17,7 +17,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import CustomError from '../../component/gm-school/CustomError/customError';
 
 const LoginScreen = () => {
-
+  
   const styles = useStyles();
   const { theme } = useTheme();
 

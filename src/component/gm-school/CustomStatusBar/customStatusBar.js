@@ -14,7 +14,7 @@ const CustomStatusBar = () => {
   const {theme}= useTheme();
 
   const getBackgroundColorBasedOnRoute = () => {
-    return ['TeacherDetail','StudentDetail','Login','UpdatePassword', 'InitialUpdatePassword'].includes(route?.name) ? theme.colors.green : theme.colors.white;
+    return ['TeacherDetail','StudentDetail','Login','UpdatePassword', 'InitialUpdatePassword'].includes(route?.name) ? theme.colors.primary : theme.colors.white;
 
   };
 

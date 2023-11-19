@@ -157,7 +157,7 @@ const useStyles = makeStyles((theme) => ({
     },
     emptyText:{
         fontSize: 16,
-        color: theme.colors.green,
+        color: theme.colors.primary,
         fontWeight: 'bold',
         marginTop: 10,
         letterSpacing: 1

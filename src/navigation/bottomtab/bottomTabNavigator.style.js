@@ -13,11 +13,11 @@ const useStyles = makeStyles((theme) => ({
     shadowRadius: 3,
   },
   searchIcon: {
-    backgroundColor: theme.colors.green,
+    backgroundColor: theme.colors.primary,
     paddingVertical: 9,
     paddingHorizontal: 10,
     borderRadius: 30,
-    shadowColor: theme.colors.green,
+    shadowColor: theme.colors.primary,
     shadowOffset: {
       width: 0,
       height: 0,

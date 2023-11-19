@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme) => ({
     flex: 1,
   },
   LoginHeader: {
-    backgroundColor: theme.colors.success,
+    backgroundColor: theme.colors.primary,
     alignItems: 'center',
     borderBottomLeftRadius: 80,
     paddingVertical: 30,
@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
     paddingVertical: 15,
     marginTop: 35,
     borderRadius: 10,
-    backgroundColor: theme.colors.success,
+    backgroundColor: theme.colors.primary,
   },
 
 

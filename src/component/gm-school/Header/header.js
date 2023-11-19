@@ -11,7 +11,14 @@ import RenderIf from "../../../utils/helper/renderIf";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { ImageResource } from "../../../utils/constant/resource";
 
-const userInfo = { "account": { "campus_id": 2, "campus_master": { "address": "Yangon", "campus_code": "0001", "campus_name": "BIB Campus 1", "created_at": "2023-02-15 11:36:54", "created_id": 1, "deleted_at": null, "id": 2, "latitude": null, "longitude": null, "phone1": "09799253293", "phone2": null, "updated_at": null, "updated_id": null }, "contact_address": "Pha-An", "dob": "1990-02-28", "email": null, "father_name": "U Aung", "gender": 1, "id": 1, "join_date": "2023-02-17", "marital_status": 1, "name": "U Zarni", "nationality": "Burmese", "nrc_number": "၁၀/သထန(နိုင်)၀၉၈၇၆၅", "permanent_address": null, "phone1": "09771300604", "phone2": null, "profile_name": null, "religion": null, "teacher_no": "T000001", "teacher_type": 1 }, "success": true, "teacher_id": 1, "token": "1057|rqNix60gBhLdzSKeSTqXlFHZxMXbBCLRkFDGVl7W", "usertype": "teacher" }
+const userInfo = {
+    "account":
+    {
+        "campus_id": 2,
+        "campus_master": { "address": "Yangon", "campus_code": "0001", "campus_name": "BIB Campus 1", "created_at": "2023-02-15 11:36:54", "created_id": 1, "deleted_at": null, "id": 2, "latitude": null, "longitude": null, "phone1": "09799253293", "phone2": null, "updated_at": null, "updated_id": null },
+        "contact_address": "Pha-An", "dob": "1990-02-28", "email": null, "father_name": "U Aung", "gender": 1, "id": 1, "join_date": "2023-02-17", "marital_status": 1, "name": "U Zarni", "nationality": "Burmese", "nrc_number": "၁၀/သထန(နိုင်)၀၉၈၇၆၅", "permanent_address": null, "phone1": "09771300604", "phone2": null, "profile_name": null, "religion": null, "teacher_no": "T000001", "teacher_type": 1
+    }, "success": true, "teacher_id": 1, "token": "1057|rqNix60gBhLdzSKeSTqXlFHZxMXbBCLRkFDGVl7W", "usertype": "teacher"
+}
 
 
 const Header = () => {
@@ -58,7 +65,7 @@ const Header = () => {
         <>
             <View style={style.container}>
                 <View style={style.headerContainer}>
-                    
+
                     <View style={style.logoContainer}>
                         <Image
                             source={ImageResource.logo.bib_logo}

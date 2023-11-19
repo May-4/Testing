@@ -1,8 +1,7 @@
 
 import { createTheme } from '@rneui/themed';
 import { COLOR } from '../theme/colorSchema';
-import { Platform } from 'react-native';
-import { FONT } from '../theme/fontSchema';
+import { SelectDropdown } from "react-native-select-dropdown";
 
 const getCustomTheme = () => {
     return createTheme(
@@ -36,6 +35,17 @@ const getCustomTheme = () => {
                         color: theme.colors.black,
                     }
                 }),
+                SelectDropdown: (_, theme) => ({
+                    buttonStyle: {
+                        width: "50%",
+                        height: 35,
+                        marginTop: 10,
+                        backgroundColor: theme.colors.white,
+                        borderRadius: 10,
+                        borderWidth: 0.5,
+                        borderColor: theme.colors.silver,
+                    }
+                })
 
             },
         }

@@ -77,7 +77,7 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: "space-between",
     },
     btnText: {
-        color: theme.colors.green,
+        color: theme.colors.primary,
         fontSize: 16,
     }
 }))

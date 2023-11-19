@@ -24,11 +24,14 @@ const getCustomTheme = () => {
                     },
                 }),
                 Input: (_, theme) => ({
-                    containerStyle: {
+                    inputContainerStyle: {
                         marginBottom: 0,
+                        borderWidth: 1,
+                        borderColor:'black'
                     },
                     inputStyle: {
-                        paddingBottom: 0,
+                        //paddingBottom: 0,
+                        
                     },
                     style: {
                         fontSize: 16,

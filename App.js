@@ -16,18 +16,24 @@ import ParentHome from './src/screens/parent/ParentHome/parentHome';
 import { Provider as RNPaperProvider } from "react-native-paper";
 import { MenuProvider } from "react-native-popup-menu";
 import TeacherHome from './src/screens/Teacher/TeacherHome/teacherHome';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import TodoHome from './src/screens/ToDo/todo';
+
 const App = () => {
 
   const theme = getCustomTheme();
+  const queryClient = new QueryClient;
 
   return (
     <SafeAreaProvider>
-      <ThemeProvider theme={theme}>
-        <RNPaperProvider>
-          {/*<AppNavigator />*/}
-          <TeacherHome />
-        </RNPaperProvider>
-      </ThemeProvider>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider theme={theme}>
+          <RNPaperProvider>
+            {/*<AppNavigator />*/}
+            <TodoHome />
+          </RNPaperProvider>
+        </ThemeProvider>
+      </QueryClientProvider>
     </SafeAreaProvider>
   )
 };

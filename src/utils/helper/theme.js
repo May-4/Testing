@@ -27,11 +27,11 @@ const getCustomTheme = () => {
                     inputContainerStyle: {
                         marginBottom: 0,
                         borderWidth: 1,
-                        borderColor:'black'
+                        borderColor: 'black'
                     },
                     inputStyle: {
                         //paddingBottom: 0,
-                        
+
                     },
                     style: {
                         fontSize: 16,

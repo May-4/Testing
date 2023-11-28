@@ -22,16 +22,13 @@ import TodoHome from './src/screens/ToDo/todo';
 const App = () => {
 
   const theme = getCustomTheme();
-  const queryClient = new QueryClient;
+  const queryClient = new QueryClient();
 
   return (
     <SafeAreaProvider>
       <QueryClientProvider client={queryClient}>
         <ThemeProvider theme={theme}>
-          <RNPaperProvider>
-            {/*<AppNavigator />*/}
-            <TodoHome />
-          </RNPaperProvider>
+          <TodoHome />
         </ThemeProvider>
       </QueryClientProvider>
     </SafeAreaProvider>

@@ -1,87 +1,83 @@
-import { StyleSheet, View, FlatList } from 'react-native'
-import React, { useEffect } from 'react'
+import { StyleSheet, View, FlatList, StatusBar, SafeAreaView } from 'react-native'
+import React, { useEffect, useRef, useState } from 'react'
 import { Button, Icon, Text, Input, CheckBox } from '@rneui/themed'
-import { getTodos } from '../../server/todoService'
 import { useQuery } from 'react-query'
 import { TouchableOpacity } from 'react-native'
+import TodoService from '../../service/todoService'
+import useStyle from './todo.style'
+import { ScrollView } from 'react-native'
 
 const TodoHome = () => {
 
+  const style = useStyle();
 
-  const todo = [
-    {
-      id: 1,
-      text: "first Todo",
-      done: false
-    },
-    {
-      id: 2,
-      text: "second Todo",
-      done: true
-    }
-  ]
+  const [isFetching, setIsFetching] = useState(false);
+  const [userId, setUserId] = useState(7);
 
-  const todoQuery = useQuery({
-    queryKey: ['todos'],
-    queryFn: getTodos,
+
+  const { data: todos, isLoading, isError, refetch } = useQuery({
+    queryKey: ['todoLists', userId],
+    queryFn: async () => await TodoService.getTodoLists(userId),
+    enabled: isFetching,
   })
 
   const renderList = ({ item, index }) => {
     return (
-      <View style={{ flexDirection: 'row', alignItems: 'center', }} key={index}>
+      <View style={{ flexDirection: 'row', alignItems: 'center', }} key={index.toString()}>
         <CheckBox
-          checked={item.done}
-          //onPress={toggleCheckbox}
+          checked={item.completed}
+          onPress={() => toggleCheckbox(item.id)}
           iconType="material-community"
           checkedIcon="checkbox-outline"
           uncheckedIcon={'checkbox-blank-outline'}
-          containerStyle={{ padding: 0 }}
         />
-        <Text> {item.text} </Text>
+        <Text> {item.title} </Text>
       </View>
     )
   }
 
-  return (
-    <View style={{ flex: 1, backgroundColor: 'white', justifyContent: 'center', alignItems: 'center' }}>
-
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', margin: 30 }}>
-        <Input
-          label="Add ToDo"
-          placeholder='New ToDo'
-          placeholderTextColor={'black'}
-          containerStyle={{ paddingRight: 20 }}
-        />
-
-        <TouchableOpacity onPress={{}}>
-          <Icon
-            name="plus-box"
-            type='material-community'
-            color='#517fa4'
-            size={40}
-          />
-        </TouchableOpacity>
-      </View>
-      <Text>todo List</Text>
-      {
-        todoQuery.isLoading && (
-          <Button type="clear" loading />
-        )
-      }
-      {
-        todoQuery.isError && (
+  const toggleCheckbox = (todoId) => {
+    console.log(todoId);
+  }
+  const loadData = () => {
+    return (
+      isLoading ?
+        <Button type="clear" loading />
+        :
+        isError || !todos?.length && (
           <Text h3 > Could not loads todos </Text>
         )
-      }
-      {
-        <FlatList
-          data={todo}
-          renderItem={renderList}
-          keyExtractor={(_, index) => { index.toString() }}
-        />
-      }
-    </View>
+    )
+  }
+
+  return (
+    <>
+      <StatusBar />
+      <SafeAreaView style={style.container}>
+        <View style={style.flexRow}>
+          <Input
+            onChangeText={(text) => setUserId(parseInt(text))}
+            value={userId}
+            label="Enter User Id"
+            keyboardType='numeric'
+            containerStyle={{ width: '50%' }}
+          />
+          <Button type='solid' title="Search Todo" onPress={() => setIsFetching(true)} />
+        </View>
+
+        {loadData()}
+
+        {
+          <FlatList
+            data={todos}
+            renderItem={renderList}
+            keyExtractor={(_, index) => { index.toString() }}
+          />
+        }
+      </SafeAreaView>
+    </>
   )
+
 }
 
 export default TodoHome

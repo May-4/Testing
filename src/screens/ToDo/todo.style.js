@@ -11,8 +11,8 @@ const useStyle = makeStyles((theme) => ({
   flexRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 15,
-    justifyContent:'space-between'
+    flexWrap:'wrap'
+    //justifyContent:'space-between'
   },
   todoWrapper: {
     backgroundColor: theme.colors.grey5,

@@ -18,6 +18,7 @@ import { MenuProvider } from "react-native-popup-menu";
 import TeacherHome from './src/screens/Teacher/TeacherHome/teacherHome';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import TodoHome from './src/screens/ToDo/todo';
+import DropdownScreen from './src/screens/dropdown/dropdownScreen';
 
 const App = () => {
 
@@ -28,7 +29,8 @@ const App = () => {
     <SafeAreaProvider>
       <QueryClientProvider client={queryClient}>
         <ThemeProvider theme={theme}>
-          <TodoHome />
+          {/*<TodoHome />*/}
+          <DropdownScreen />
         </ThemeProvider>
       </QueryClientProvider>
     </SafeAreaProvider>
